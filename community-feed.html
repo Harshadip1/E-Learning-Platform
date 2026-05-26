@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community Feed — EduSphere</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="particles"></div>
+  <div id="app-header"></div>
+  <div class="dashboard-layout">
+    <div id="app-sidebar"></div>
+    <main class="dashboard-main">
+      <h1 class="page-title">Community Feed</h1>
+      <div id="feed"></div>
+    </main>
+  </div>
+  <div id="app-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.getElementById('feed').innerHTML = Array.from({length:30}, (_,i) => `
+      <div class="card mb-2">
+        <div class="flex gap-2"><div class="review-avatar">${String.fromCharCode(65+i%26)}</div>
+        <div><strong>Learner ${i+1}</strong> <span class="text-muted">· ${(i%12)+1}h ago</span>
+        <p class="mt-1">Just completed ${EduData.courses[i].title}! 🎉</p>
+        <div class="flex gap-2 mt-1"><span>👍 ${10+i*3}</span><span>💬 ${i%8}</span></div></div></div>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>

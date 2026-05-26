@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parent Dashboard — EduSphere</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="app-header"></div>
+  <main class="dashboard-main container-wide" style="padding:2rem">
+    <h1 class="page-title">Parent Dashboard</h1>
+    <p class="page-subtitle">Monitor your children's learning progress</p>
+    <div class="grid-3" id="children"></div>
+  </main>
+  <div id="app-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.getElementById('children').innerHTML = Array.from({length:3}, (_,i) => `
+      <div class="card glass"><h3>Student ${i+1}</h3>
+      <p class="mt-2">Courses: ${8+i*3} · Streak: ${12+i*5} days</p>
+      <div class="progress-bar mt-2"><div class="progress-bar-fill" style="width:${60+i*10}%"></div></div>
+      <p class="text-muted mt-1">${60+i*10}% weekly goal</p></div>
+    `).join('');
+  </script>
+</body>
+</html>

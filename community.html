@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discussion Forum — EduSphere</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="community">
+  <div class="particles"></div>
+  <div id="app-header"></div>
+  <div class="dashboard-layout">
+    <div id="app-sidebar"></div>
+    <main class="dashboard-main">
+      <div class="flex-between flex-wrap gap-2 mb-2">
+        <div>
+          <h1 class="page-title">Discussion Forum</h1>
+          <p class="page-subtitle">350+ threads · Q&A · Study groups</p>
+        </div>
+        <button class="btn btn-primary">+ New Post</button>
+      </div>
+      <div class="filters-row card glass mb-2" style="padding:1rem">
+        <input type="search" placeholder="Search discussions..." style="flex:1">
+        <select><option>All Categories</option></select>
+        <select><option>Most Recent</option><option>Most Upvoted</option></select>
+      </div>
+      <div id="forum-posts"></div>
+    </main>
+  </div>
+  <div id="app-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Tracking — EduSphere</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/courses.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="analytics">
+  <div class="particles"></div>
+  <div id="app-header"></div>
+  <div class="dashboard-layout">
+    <div id="app-sidebar"></div>
+    <main class="dashboard-main">
+      <h1 class="page-title">Progress Tracking</h1>
+      <p class="page-subtitle">Monitor completion across all enrolled courses</p>
+      <div class="grid-3" id="progress-cards"></div>
+      <div class="card glass mt-3">
+        <h3>Skill Tree</h3>
+        <div class="skill-tree" id="skill-tree"></div>
+      </div>
+    </main>
+  </div>
+  <div id="app-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const el = document.getElementById('progress-cards');
+      if (el) {
+        el.innerHTML = EduData.enrolledCourses.slice(0, 12).map(c => `
+          <div class="card">
+            <h4>${c.title}</h4>
+            <div class="progress-bar mt-2"><div class="progress-bar-fill" style="width:${c.progress}%"></div></div>
+            <p class="text-muted mt-1">${c.progress}% · ${c.lessonCount} lessons</p>
+          </div>
+        `).join('');
+      }
+      const tree = document.getElementById('skill-tree');
+      if (tree) {
+        tree.innerHTML = EduData.CATEGORIES.map((cat, i) => `
+          <div class="skill-node ${i < 6 ? 'unlocked' : i === 6 ? 'current' : 'locked'}">
+            <span>${['💻','🌐','🤖','💼','📣','🎨','💰','📊','🔐','📱'][i]}</span>
+            <span>${cat.split(' ')[0]}</span>
+          </div>
+        `).join('');
+      }
+    });
+  </script>
+</body>
+</html>

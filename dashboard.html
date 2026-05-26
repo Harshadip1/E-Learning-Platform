@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard — EduSphere</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/courses.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="dashboard">
+  <div class="particles"></div>
+  <div id="app-header"></div>
+  <div class="dashboard-layout">
+    <div id="app-sidebar"></div>
+    <main class="dashboard-main">
+      <h1 class="page-title">Welcome back, Learner</h1>
+      <p class="page-subtitle">Track your progress across 45+ enrolled courses</p>
+
+      <div class="stats-row">
+        <div class="stat-card card glass">
+          <div class="stat-icon" style="background:rgba(124,58,237,0.2)">📚</div>
+          <div class="stat-value">45</div>
+          <div class="stat-label">Enrolled Courses</div>
+          <div class="stat-change up">↑ 3 this month</div>
+        </div>
+        <div class="stat-card card glass">
+          <div class="stat-icon" style="background:rgba(6,182,212,0.2)">⏱️</div>
+          <div class="stat-value" id="stat-study-hours">—</div>
+          <div class="stat-label">Study Hours</div>
+        </div>
+        <div class="stat-card card glass">
+          <div class="stat-icon" style="background:rgba(245,158,11,0.2)">🔥</div>
+          <div class="stat-value" id="stat-streak">—</div>
+          <div class="stat-label">Day Streak</div>
+        </div>
+        <div class="stat-card card glass">
+          <div class="stat-icon" style="background:rgba(34,197,94,0.2)">🏆</div>
+          <div class="stat-value" id="stat-completed">—</div>
+          <div class="stat-label">Courses Completed</div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div>
+          <div class="card glass mb-2">
+            <h3>Continue Learning</h3>
+            <div class="courses-grid mt-2" id="enrolled-courses" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))"></div>
+          </div>
+          <div class="card glass">
+            <h3>Weekly Activity</h3>
+            <div class="chart-container"><canvas id="chart-weekly"></canvas></div>
+          </div>
+        </div>
+        <div>
+          <div class="card glass streak-widget mb-2">
+            <div class="streak-flame">🔥</div>
+            <div class="streak-count" id="stat-streak-widget">23</div>
+            <p class="text-muted">Day study streak</p>
+          </div>
+          <div class="card glass mb-2">
+            <h3>Upcoming Live Classes</h3>
+            <div id="upcoming-classes"></div>
+          </div>
+          <div class="card glass">
+            <h3>Assignments Due</h3>
+            <div id="dashboard-assignments"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="widget-row mt-3">
+        <div class="card glass">
+          <h3>Activity Feed</h3>
+          <div class="activity-feed" id="activity-feed"></div>
+        </div>
+        <div class="card glass">
+          <h3>Quiz Performance</h3>
+          <p>Average: <strong id="stat-quiz-avg">—</strong> · Passed: <strong id="stat-quizzes-passed">—</strong></p>
+          <div class="chart-container"><canvas id="chart-quiz"></canvas></div>
+        </div>
+      </div>
+
+      <div class="mt-3">
+        <h3 class="mb-2">Recommended for You</h3>
+        <div class="courses-grid" id="recommended-courses"></div>
+      </div>
+    </main>
+  </div>
+  <div id="app-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/courses.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

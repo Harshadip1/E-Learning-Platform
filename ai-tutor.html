@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tutor — EduSphere</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/analytics.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="ai-tutor">
+  <div class="particles"></div>
+  <div id="app-header"></div>
+  <div class="dashboard-layout">
+    <div id="app-sidebar"></div>
+    <main class="dashboard-main">
+      <h1 class="page-title">AI Tutor Assistant</h1>
+      <p class="page-subtitle">Personalized learning paths and smart recommendations (UI demo)</p>
+      <div class="ai-tutor-panel">
+        <div class="card glass">
+          <h3>Recommendations</h3>
+          <ul style="list-style:none;margin-top:1rem">
+            <li class="mb-2">📚 Complete React Module 4</li>
+            <li class="mb-2">✅ Take Python Quiz #8</li>
+            <li class="mb-2">🎯 Study goal: 2h today</li>
+            <li class="mb-2">💡 Review: Async JavaScript</li>
+          </ul>
+          <h3 class="mt-3">Voice Search</h3>
+          <button class="btn btn-outline mt-1" style="width:100%">🎤 Start Voice Search</button>
+        </div>
+        <div class="ai-chat">
+          <div class="ai-chat-messages" id="ai-chat-messages"></div>
+          <div class="ai-chat-input">
+            <input type="text" id="ai-input" placeholder="Ask your AI tutor..." style="flex:1">
+            <button class="btn btn-primary" id="ai-send">Send</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div id="app-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

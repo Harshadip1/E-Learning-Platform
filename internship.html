@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internship Portal — EduSphere</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div id="app-header"></div>
+  <main class="dashboard-main container-wide" style="padding:2rem">
+    <h1 class="page-title">Internship Portal</h1>
+    <p class="page-subtitle">Career opportunities for top learners</p>
+    <div id="internships"></div>
+  </main>
+  <div id="app-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.getElementById('internships').innerHTML = Array.from({length:25}, (_,i) => `
+      <div class="card mb-2 flex-between flex-wrap gap-1">
+        <div><h3>${['Software Engineering','Data Science','Product Design','DevOps','Marketing'][i%5]} Intern</h3>
+        <p class="text-muted">Remote · ${3+(i%6)} months · ${['Tech Corp','Innovate Labs','Global Systems'][i%3]}</p></div>
+        <button class="btn btn-primary btn-sm">Apply</button>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>

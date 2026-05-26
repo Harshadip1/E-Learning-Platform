@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coding Practice — EduSphere</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/analytics.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="coding">
+  <div class="particles"></div>
+  <div id="app-header"></div>
+  <div class="dashboard-layout">
+    <div id="app-sidebar"></div>
+    <main class="dashboard-main">
+      <h1 class="page-title">Coding Practice</h1>
+      <p class="page-subtitle">100 programming challenges with test cases</p>
+      <div class="code-editor-layout">
+        <div>
+          <h3 class="mb-2">Challenges</h3>
+          <div id="coding-challenges" style="max-height:400px;overflow-y:auto"></div>
+        </div>
+        <div class="code-editor">
+          <div class="code-editor-header">main.js</div>
+          <textarea class="code-textarea" id="code-input" spellcheck="false"></textarea>
+        </div>
+        <div class="console-output" id="code-output">> Ready to run...</div>
+        <div class="test-cases card">
+          <h4>Test Cases</h4>
+          <div class="test-case pass">✓ Input: [1,2,3] → Expected: 6</div>
+          <div class="test-case pass">✓ Input: [] → Expected: 0</div>
+          <div class="test-case">○ Input: [-1,5] → Expected: 4</div>
+          <button class="btn btn-primary mt-2" id="run-code">Run Code</button>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div id="app-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

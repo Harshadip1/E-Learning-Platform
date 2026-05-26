@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Learning — EduSphere</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/courses.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="lessons">
+  <div id="app-header"></div>
+  <div class="learning-layout">
+    <div class="video-section">
+      <div class="video-wrapper" id="video-player"></div>
+      <div class="video-controls-bar">
+        <button id="prev-lesson">◀ Previous</button>
+        <button id="next-lesson">Next ▶</button>
+        <button id="mark-complete" class="btn btn-sm btn-primary">✓ Mark Complete</button>
+        <select id="playback-speed" title="Playback speed">
+          <option value="0.5">0.5x</option>
+          <option value="0.75">0.75x</option>
+          <option value="1" selected>1x</option>
+          <option value="1.25">1.25x</option>
+          <option value="1.5">1.5x</option>
+          <option value="2">2x</option>
+        </select>
+        <select id="subtitle-lang">
+          <option>Subtitles: Off</option>
+          <option>English</option>
+          <option>Spanish</option>
+          <option>French</option>
+        </select>
+        <button class="btn btn-sm btn-outline" onclick="document.querySelector('iframe')?.requestFullscreen?.()">⛶ Fullscreen</button>
+      </div>
+      <div style="padding:1.25rem;background:var(--bg-secondary)">
+        <h2 id="current-lesson-title">Loading lesson...</h2>
+        <p class="text-muted mt-1">YouTube-powered video lectures with downloadable resources</p>
+      </div>
+      <div class="notes-panel">
+        <h3>📝 Notes</h3>
+        <textarea rows="4" placeholder="Take notes while watching..." style="margin-top:0.5rem"></textarea>
+        <h3 class="mt-2">📎 Resources</h3>
+        <p class="text-muted">Slides, code samples, and PDFs available per lesson</p>
+        <button class="btn btn-outline btn-sm mt-1">Download All Resources</button>
+      </div>
+    </div>
+    <aside class="lesson-sidebar">
+      <div class="lesson-sidebar-header">
+        <h3 id="course-sidebar-title">Course</h3>
+        <div class="progress-bar mt-1"><div class="progress-bar-fill" style="width:42%"></div></div>
+      </div>
+      <div id="lesson-list"></div>
+    </aside>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/courses.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

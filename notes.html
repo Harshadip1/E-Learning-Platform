@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes & Bookmarks — EduSphere</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <div class="particles"></div>
+  <div id="app-header"></div>
+  <div class="dashboard-layout">
+    <div id="app-sidebar"></div>
+    <main class="dashboard-main">
+      <h1 class="page-title">Notes & Bookmarks</h1>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="notes">Notes</button>
+        <button class="tab-btn" data-tab="bookmarks">Bookmarks</button>
+        <button class="tab-btn" data-tab="flashcards">Flashcards</button>
+      </div>
+      <div class="tab-panel active" id="tab-notes">
+        <div id="notes-list"></div>
+      </div>
+      <div class="tab-panel" id="tab-bookmarks">
+        <div class="courses-grid" id="bookmarks-list"></div>
+      </div>
+      <div class="tab-panel" id="tab-flashcards">
+        <div class="grid-4" id="flashcards"></div>
+      </div>
+    </main>
+  </div>
+  <div id="app-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/courses.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.getElementById('notes-list').innerHTML = Array.from({length:40}, (_,i) => `
+      <div class="card mb-2"><h4>Note ${i+1} — ${EduData.courses[i%EduData.courses.length].title}</h4>
+      <p class="text-muted mt-1">Key concepts from lesson ${(i%15)+1}. Important definitions and code snippets.</p>
+      <small class="text-muted">Saved ${(i%30)+1} days ago</small></div>
+    `).join('');
+    CourseManager.renderGrid(document.getElementById('bookmarks-list'), EduData.courses.slice(0,8));
+    document.getElementById('flashcards').innerHTML = Array.from({length:20}, (_,i) => `
+      <div class="card" style="min-height:120px;cursor:pointer;text-align:center;display:flex;align-items:center;justify-content:center">
+        <div><strong>Q:</strong> Term ${i+1}<br><span class="text-muted">Click to flip</span></div>
+      </div>
+    `).join('');
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn,.tab-panel').forEach(e => e.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-'+btn.dataset.tab)?.classList.add('active');
+    }));
+  </script>
+</body>
+</html>

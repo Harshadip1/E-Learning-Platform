@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Classes — EduSphere</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/analytics.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="live-classes">
+  <div class="particles"></div>
+  <div id="app-header"></div>
+  <div class="dashboard-layout">
+    <div id="app-sidebar"></div>
+    <main class="dashboard-main">
+      <h1 class="page-title">Live Classes</h1>
+      <div id="live-sessions" class="grid-3 mb-3"></div>
+      <div class="live-class-layout card glass" style="padding:1rem">
+        <div class="live-video-area">
+          <iframe src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=0" style="width:100%;height:100%;border:none;border-radius:12px" allowfullscreen title="Live stream demo"></iframe>
+          <div class="live-controls">
+            <button class="icon-btn">🎤</button>
+            <button class="icon-btn">📹</button>
+            <button class="icon-btn">🖥️</button>
+            <button class="icon-btn" style="background:var(--danger)">Leave</button>
+          </div>
+        </div>
+        <div class="live-sidebar">
+          <div class="card"><h4>Participants (24)</h4><div class="participant-list mt-1" id="participants"></div></div>
+          <div class="card" style="flex:1"><h4>Chat</h4><div class="chat-messages" id="live-chat"></div>
+            <input type="text" placeholder="Type a message..." class="mt-1">
+          </div>
+          <div class="card"><h4>Whiteboard</h4><div style="height:80px;background:var(--bg-tertiary);border-radius:8px;display:flex;align-items:center;justify-content:center">✏️ Whiteboard UI</div></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div id="app-footer"></div>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/themes.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const p = document.getElementById('participants');
+      if (p) p.innerHTML = EduData.leaderboard.slice(0,12).map(s => `<div style="padding:0.35rem 0">${s.name}</div>`).join('');
+      const chat = document.getElementById('live-chat');
+      if (chat) chat.innerHTML = Array.from({length:15}, (_,i) => `<div class="chat-msg"><strong>Student ${i+1}:</strong> Great explanation!</div>`).join('');
+    });
+  </script>
+</body>
+</html>
